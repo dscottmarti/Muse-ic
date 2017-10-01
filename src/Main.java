@@ -1,13 +1,22 @@
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.awt.*;
 import java.util.*;
 import javax.sound.midi.*;
 import javax.swing.*;
-public class Main {
+public class Main implements ActionListener{
+	public static StartingGUI window;
+	public JFileChooser chooser;
+	public String path;
+	public File file;
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StartingGUI window = new StartingGUI();
+					window = new StartingGUI();
 					window.frame.setVisible(true);
 
 				} catch (Exception e) {
@@ -26,6 +35,7 @@ public class Main {
 		
 		ArrayList<Thread> threads = new ArrayList<Thread>();
 		
+
 		try{
 			Synthesizer synth = MidiSystem.getSynthesizer();
 			synth.open();
@@ -59,6 +69,20 @@ public class Main {
 	public static void stopThreads(ArrayList<Thread> threads) {
 		for(int i = 0; i < threads.size(); i++)
 			threads.get(i).interrupt();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		if(arg0.getSource() == window.btnLoadBrainwaves) {
+		    int returnVal = chooser.showOpenDialog(window);
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+            	File file = chooser.getSelectedFile();
+            	MindReader reader = new MindReader(file.getPath(),.6);
+            	
+            }
+
+		}
+		
 	}
 	
 }

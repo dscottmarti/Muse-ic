@@ -86,7 +86,7 @@ public class MindReader{
 		int[] scale2 = {60,62,64,65,67,69,71,72};
 		int[] scale3 = {72,74,76,77,79,81,83,84};
 		String[] sA = {"c1","d1","e1","f1","g1","a1","b1","c2"};
-		int[] raw = {0,500,600,680,780,850,900,10000};
+		int[] raw = {0,600,625,700,750,800,900, 10000};
 		ArrayList<ArrayList<Note>> ret = new ArrayList<ArrayList<Note>>();
 		ret.add(new ArrayList<Note>());
 		ret.add(new ArrayList<Note>());

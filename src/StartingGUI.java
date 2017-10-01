@@ -32,6 +32,7 @@ import javax.swing.JLayeredPane;
 public class StartingGUI extends JPanel{
 
 	public JFrame frame;
+	public JButton btnLoadBrainwaves;
 	static Image musicNote;
 
 	/**
@@ -71,7 +72,7 @@ public class StartingGUI extends JPanel{
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		
 		ImageIcon button = new ImageIcon("BrainButton.png");
-		JButton btnLoadBrainwaves = new JButton(button);
+		btnLoadBrainwaves = new JButton(button);
 		//JButton btnLoadBrainwaves = new JButton("Upload Brainwaves");
 		btnLoadBrainwaves.setBorder(null);
 		btnLoadBrainwaves.setOpaque(false);
